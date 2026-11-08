@@ -1,0 +1,140 @@
+{
+  "identity": {
+    "name": "Anne-Sophie HAMON",
+    "title": "Développeuse Back-End & Restitution documentaire · Lead Tech · DPO",
+    "tagline": "Expertise en composition documentaire à grande échelle et gouvernance des données sensibles.",
+    "location": "Rieux (56) · Gare de Redon",
+    "mobility": "Rennes · Nantes · Vannes"
+  },
+  "summary": "Développeuse back-end senior spécialisée en Java, SQL, XML et XSL-FO, avec une double expertise de Déléguée à la Protection des Données. J’allie ingénierie documentaire, conformité RGPD et Privacy by Design. Cap : transposer cette expérience aux plateformes CCM modernes.",
+  "skills": [
+    {
+      "category": "Éditique & composition documentaire",
+      "ccmWeight": 5,
+      "dpoWeight": 2,
+      "items": ["XSL-FO", "XML / XSLT", "JSON", "PDF", "Markdown"]
+    },
+    {
+      "category": "Back-end & architecture data",
+      "ccmWeight": 4,
+      "dpoWeight": 2,
+      "items": ["Java", "SQL", "PostgreSQL", "Git", "Linux", "Regex & logs", "Eclipse/VS Code", "Claude code"]
+    },
+    {
+      "category": "Conformité & protection des données",
+      "ccmWeight": 2,
+      "dpoWeight": 5,
+      "items": ["RGPD", "Privacy by Design", "AIPD / PIA", "ISO 27001", "IA Act", "DPA"]
+    },
+    {
+      "category": "Méthodes & collaboration",
+      "ccmWeight": 4,
+      "dpoWeight": 4,
+      "items": ["Coordination technique", "Rédaction / Documentation", "Gestion de projet", "Anglais C2"]
+    },
+    {
+      "category": "Soft skills",
+      "ccmWeight": 3,
+      "dpoWeight": 3,
+      "items": ["Rigueur", "Esprit d’analyse", "Travail en équipe", "Autonomie", "Curiosité"]
+    }
+
+  ],
+  "targetEnvironments": {
+    "title": "Environnements CCM visés",
+    "items": ["Quadient Inspire", "OpenText Exstream"],
+    "note": "Objectif de montée en compétence, avec un socle transférable en composition documentaire : Java, JSON, XML / XSLT et XSL-FO."
+  },
+  "experiences": [
+    {
+      "id": "exp-lead",
+      "role": "Leader technique & développeuse back-end — restitution documentaire",
+      "company": "PerformanSe",
+      "period": "2021 — Aujourd’hui · Lead Tech depuis 2024",
+      "location": "Nantes / hybride",
+      "ccmFocus": true,
+      "dpoFocus": true,
+      "ccmOrder": 1,
+      "dpoOrder": 2,
+      "ccmHighlights": [
+        "Développement Java et XSL-FO de rapports PDF complexes, dynamiques et multilingues depuis des flux XML / JSON.",
+        "Coordination de la personnalisation des rapports de restitution",
+        "Coordination technique des projets de personnalisation avancée de la plateforme 360 by PerformanSe (questionnaires personnalisés, customisation des rapports de restitution)",
+        "Extractions de données statistiques via des requêtes PostgreSQL (études R&D, étalonnages produits)"
+      ],
+      "dpoHighlights": [
+        "Interface entre les contraintes de développement éditique, le RGPD et la gouvernance des algorithmes."
+      ],
+      "techStack": ["Java", "XSL-FO", "XML", "JSON", "Markdown", "PostgreSQL", "Lead Tech", "Claude code"]
+    },
+    {
+      "id": "exp-dpo",
+      "role": "Déléguée à la Protection des Données (DPO)",
+      "company": "PerformanSe",
+      "period": "2018 — Aujourd’hui",
+      "location": "Nantes / hybride",
+      "ccmFocus": true,
+      "dpoFocus": true,
+      "ccmOrder": 2,
+      "dpoOrder": 1,
+      "ccmHighlights": [
+        "Audit des flux de données et intégration de la minimisation des données dans les développements."
+      ],
+      "dpoHighlights": [
+        "Pilotage de la conformité RGPD pour les offres SaaS et les traitements clients et RH.",
+        "Réalisation d’AIPD, gestion des sous-traitants et négociation des DPA.",
+        "Contribution à l’obtention et au maintien de la certification ISO 27001."
+      ],
+      "techStack": ["RGPD", "ISO 27001", "AIPD", "Privacy by Design", "DPA", "IA Act"]
+    },
+    {
+      "id": "exp-support",
+      "role": "Technicienne de support informatique (N1 à N3)",
+      "company": "PerformanSe",
+      "period": "2014 — 2021",
+      "location": "Nantes / hybride",
+      "ccmFocus": true,
+      "dpoFocus": false,
+      "ccmOrder": 3,
+      "dpoOrder": 3,
+      "ccmHighlights": [
+        "Prise en charge des demandes de support logiciel et assistance aux utilisateurs.",
+        "Investigations SQL / logs en vue de la résolution de problèmes.",
+        "Rédaction de documentation technique et fonctionnelle en français et en anglais."
+      ],
+      "dpoHighlights": [],
+      "techStack": ["Support N1/N2/N3", "SQL", "Regex", "Documentation"]
+    }
+  ],
+  "languages": [
+    {
+      "name": "Anglais",
+      "level": "C2 · bilingue"
+    },
+    {
+      "name": "Français",
+      "level": "Natif"
+    },
+    {
+      "name": "Italien",
+      "level": "B2"
+    }
+  ],
+  "education": [
+    {
+      "title": "Titre T2SI · Technicienne supérieure support informatique",
+      "school": "ENI École Informatique, Nantes",
+      "year": "2014"
+    },
+    {
+      "title": "BSc Informatics",
+      "school": "University of Teesside, Royaume-Uni",
+      "year": "2001"
+    },
+    {
+      "title": "DUT Informatique de gestion",
+      "school": "IUT de Reims",
+      "year": "1998"
+    }
+  ]
+}

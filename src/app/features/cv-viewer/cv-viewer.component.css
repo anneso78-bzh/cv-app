@@ -1,0 +1,117 @@
+:host { display: block; }
+.resume { display: grid; gap: 15px; color: var(--text); }
+.profile-card, .resume-card { border: 1px solid var(--border); border-radius: 12px; background: linear-gradient(145deg, #0d1725, #0a111b); box-shadow: 0 12px 35px #00000012; }
+.profile-card { display: grid; grid-template-columns: 1fr minmax(220px, .34fr); gap: 25px; padding: 21px 24px; }
+.profile-main { align-self: center; }
+.target-label { display: flex; align-items: center; gap: 8px; margin: 0 0 9px; color: #7dd3fc; font-size: 8px; font-weight: 800; letter-spacing: .1em; }
+.target-label span { width: 6px; height: 6px; border-radius: 50%; background: var(--cyan); box-shadow: 0 0 10px var(--cyan); }
+.profile-card h1 { margin: 0; font-size: clamp(27px, 4vw, 37px); font-weight: 800; letter-spacing: -.045em; }
+.profile-title { margin: 6px 0 12px; color: #aab8c9; font-size: 13px; font-weight: 600; line-height: 1.5; }
+.summary { max-width: 740px; margin: 0; color: #9aa8b9; font-size: 10px; line-height: 1.65; }
+.contact-list { display: grid; align-content: center; gap: 8px; border-left: 1px solid var(--border); padding-left: 20px; }
+.contact-line, .contact-link { display: flex; align-items: center; gap: 9px; color: #aab8c9; font-size: 9px; line-height: 1.4; }
+.contact-icon { width: 15px; flex: 0 0 15px; color: var(--cyan); font-size: 12px; text-align: center; }
+.location-icon { width: 16px; height: 16px; }
+.mobility-icon { width: 16px; height: 16px; }
+.contact-link { width: fit-content; color: #67e8f9; text-decoration: none; }
+.contact-link:hover { text-decoration: underline; }
+
+.resume-grid { display: grid; grid-template-columns: minmax(250px, .34fr) minmax(0, .66fr); align-items: start; gap: 15px; }
+.sidebar { display: grid; gap: 12px; }
+.resume-card { padding: 16px 17px; }
+.resume-card h2 { display: flex; align-items: center; gap: 8px; margin: 0; color: #dce8f4; font-size: 10px; font-weight: 800; letter-spacing: .08em; }
+.section-icon { color: var(--cyan); font-size: 14px; }
+.education-icon { color: #a5b4fc; }
+.view-switch { display: flex; gap: 4px; margin: 13px 0 14px; border: 1px solid #1e2b3c; border-radius: 7px; padding: 3px; background: #080f19; }
+.view-switch button { flex: 1; border: 0; border-radius: 5px; padding: 7px 4px; background: transparent; color: #8290a3; font: inherit; font-size: 9px; font-weight: 700; cursor: pointer; }
+.view-switch button:hover { color: #e2e8f0; }
+.view-switch button.active { background: #0e7490; color: white; }
+.view-switch button.ccm-view { color: #67e8f9; }
+.view-switch button.ccm-view.active { background: #0e7490; color: white; }
+.view-switch button.dpo-view { color: #86efac; }
+.view-switch button.dpo-view.active { background: #15803d; color: white; }
+.skill-group + .skill-group { margin-top: 13px; border-top: 1px solid #1c2837; padding-top: 11px; }
+.skill-group h3 { margin: 0 0 8px; color: #c3cfdd; font-size: 9px; font-weight: 700; }
+.skill-tags, .experience-tags { display: flex; flex-wrap: wrap; gap: 5px; }
+.skill-tags span, .experience-tags span { border: 1px solid #263346; border-radius: 4px; padding: 4px 6px; background: #101a28; color: #94a3b8; font-size: 8px; line-height: 1.2; }
+.skill-tags span.highlight-ccm { border-color: #155e75; background: #082c3a; color: #67e8f9; }
+.skill-tags span.highlight-dpo { border-color: #166534; background: #0c2b21; color: #86efac; }
+.target-skills { margin-top: 14px; border: 1px solid #164e63; border-radius: 7px; padding: 10px; background: linear-gradient(120deg, #08283a, #0b1825); }
+.target-skills h3 { margin: 0 0 8px; color: #a5f3fc; font-size: 9px; font-weight: 800; }
+.target-tags { display: flex; flex-wrap: wrap; gap: 5px; }
+.target-tags span { border: 1px dashed #0e7490; border-radius: 4px; padding: 4px 6px; color: #67e8f9; font-size: 8px; }
+.target-skills p { margin: 8px 0 0; color: #a7b5c5; font-size: 8px; line-height: 1.5; }
+.education-card { display: grid; gap: 12px; }
+.education-item { border-left: 2px solid #475569; padding-left: 9px; }
+.education-item strong { display: block; color: #d3deeb; font-size: 9px; line-height: 1.4; }
+.education-item span { display: flex; justify-content: space-between; gap: 8px; margin-top: 4px; color: #8290a3; font-size: 8px; line-height: 1.4; }
+.education-item i { color: #a5b4fc; font-style: normal; white-space: nowrap; }
+.transition-card { display: flex; gap: 11px; border-color: #155e75; background: linear-gradient(120deg, #08283a, #0b1825); }
+.transition-icon { width: 20px; height: 20px; flex: 0 0 20px; color: #fbbf24; }
+.transition-card h2 { color: #a5f3fc; font-size: 9px; }
+.transition-card p { margin: 7px 0 0; color: #a7b5c5; font-size: 9px; line-height: 1.55; }
+
+.experience-card { min-width: 0; padding: 17px 19px; }
+.experience-heading { display: flex; align-items: center; justify-content: space-between; gap: 10px; padding-bottom: 13px; border-bottom: 1px solid var(--border); }
+.years-label { color: #64748b; font-size: 8px; font-weight: 700; letter-spacing: .08em; white-space: nowrap; }
+.timeline { position: relative; display: grid; gap: 0; padding-left: 17px; }
+.timeline::before { position: absolute; top: 14px; bottom: 14px; left: 4px; width: 1px; background: #263648; content: ""; }
+.experience { position: relative; padding: 15px 0 14px; }
+.experience + .experience { border-top: 1px solid #1b2837; }
+.experience::before { position: absolute; top: 20px; left: -17px; width: 7px; height: 7px; border: 2px solid #22d3ee; border-radius: 50%; background: #0a111b; content: ""; }
+.experience-meta { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 5px 12px; }
+.period { border: 1px solid #164e63; border-radius: 20px; padding: 4px 8px; background: #0b2532; color: #67e8f9; font: 700 8px var(--mono); }
+.company { color: #718198; font-size: 8px; font-weight: 600; }
+.experience h3 { margin: 8px 0 0; color: #e6edf5; font-size: 12px; font-weight: 700; line-height: 1.4; }
+.experience ul { display: grid; gap: 6px; margin: 8px 0; padding: 0; list-style: none; }
+.experience li { position: relative; padding-left: 12px; color: #9aa8b9; font-size: 9px; line-height: 1.55; }
+.experience li::before { position: absolute; top: 0; left: 0; color: var(--cyan); content: "›"; font-size: 13px; }
+.experience-tags { margin-top: 8px; }
+.experience-tags span { border-color: #263346; padding: 3px 6px; font-size: 7px; }
+
+@media (max-width: 760px) {
+  .profile-card { grid-template-columns: 1fr; gap: 15px; padding: 17px; }
+  .contact-list { grid-template-columns: 1fr 1fr; gap: 9px; border-top: 1px solid var(--border); border-left: 0; padding: 13px 0 0; }
+  .resume-grid { grid-template-columns: 1fr; }
+  .sidebar { grid-template-columns: 1fr 1fr; align-items: start; }
+  .skills-card { grid-column: 1 / -1; }
+  .transition-card { grid-column: 1 / -1; }
+}
+
+@media (max-width: 480px) {
+  .contact-list, .sidebar { grid-template-columns: 1fr; }
+  .experience-card { padding: 14px; }
+  .experience-heading { align-items: flex-start; flex-direction: column; }
+}
+
+@media print {
+  :host { display: block; }
+  .resume { gap: 5mm; color: #111827; }
+  .profile-card, .resume-card { border: 1px solid #cbd5e1; border-radius: 3mm; background: white; box-shadow: none; }
+  .profile-card { grid-template-columns: 1fr 52mm; gap: 5mm; padding: 5mm; }
+  .profile-card h1 { color: #111827; font-size: 23pt; }
+  .target-label { color: #0369a1; font-size: 7pt; }
+  .profile-title { color: #334155; font-size: 9pt; }
+  .summary, .contact-line { color: #475569; font-size: 7pt; }
+  .contact-list { border-color: #cbd5e1; }
+  .contact-link { color: #0369a1; font-size: 7pt; }
+  .resume-grid { grid-template-columns: 34% 1fr; gap: 4mm; }
+  .sidebar { gap: 3mm; }
+  .resume-card { padding: 3.5mm; }
+  .resume-card h2, .skill-group h3, .education-item strong, .experience h3 { color: #111827; }
+  .view-switch { display: none; }
+  .skill-group + .skill-group { border-color: #e2e8f0; }
+  .skill-tags span, .experience-tags span { border-color: #cbd5e1; background: #f1f5f9; color: #334155; }
+  .skill-tags span.highlight-ccm, .skill-tags span.highlight-dpo { border-color: #cbd5e1; background: #f1f5f9; color: #111827; }
+  .target-skills { border-color: #94a3b8; background: white; }
+  .target-skills h3, .target-tags span, .target-skills p { border-color: #cbd5e1; color: #334155; }
+  .education-item span, .experience li, .transition-card p { color: #475569; }
+  .transition-card { border-color: #cbd5e1; background: white; }
+  .transition-card h2 { color: #111827; }
+  .experience-card { break-inside: avoid; }
+  .experience + .experience { border-color: #e2e8f0; }
+  .experience h3 { font-size: 8pt; }
+  .experience li { font-size: 7pt; line-height: 1.35; }
+  .experience-tags span { font-size: 6pt; }
+  .years-label, .company { color: #475569; }
+}

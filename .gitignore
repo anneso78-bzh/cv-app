@@ -1,0 +1,9 @@
+node_modules/
+dist/
+.angular/
+coverage/
+.env
+.env.*
+!.env.example
+*.log
+src/app/core/models/cv-data.model.js
