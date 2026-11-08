@@ -7,6 +7,7 @@ import { createCvPdf } from './services/cv-pdf.service';
 
 const app = express();
 const port = Number(process.env['PORT'] ?? 3000);
+const host = process.env['IP'] ?? '::';
 const projectRoot = process.cwd();
 const builtWebRoot = resolve(projectRoot, 'dist/cv-ccm-portfolio/browser');
 const cvDataPaths = [
@@ -44,6 +45,6 @@ if (existsSync(builtWebRoot)) {
   });
 }
 
-app.listen(port, '0.0.0.0', () => {
-  console.log(`CV backend listening on port ${port}`);
+app.listen(port, host, () => {
+  console.log(`CV backend listening on ${host}:${port}`);
 });
