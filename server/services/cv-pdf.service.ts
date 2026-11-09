@@ -138,7 +138,7 @@ function drawSidebar(
     }
   ];
   const totalBlockHeight = blocks.reduce((total, block) => total + sidebarBlockHeight(document, block), 0);
-  const gap = Math.min(10, Math.max(
+  const gap = Math.min(13, Math.max(
     0,
     (SIDEBAR_BOTTOM - SIDEBAR_TOP - totalBlockHeight) / (blocks.length - 1)
   ));
