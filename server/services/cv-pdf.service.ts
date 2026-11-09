@@ -18,7 +18,7 @@ const MAIN_PANEL_X = SIDEBAR_X + SIDEBAR_WIDTH + COLUMN_GAP / 2;
 const MAIN_PANEL_WIDTH = PAGE_WIDTH - PAGE_MARGIN - MAIN_PANEL_X;
 const MAIN_X = MAIN_PANEL_X + MAIN_PANEL_PADDING;
 const MAIN_WIDTH = MAIN_PANEL_WIDTH - MAIN_PANEL_PADDING * 2;
-const MAIN_TOP = 34;
+const MAIN_TOP = 24;
 const SIDEBAR_TOP = PAGE_MARGIN;
 const SIDEBAR_BOTTOM = FOOTER_Y - 10;
 
@@ -278,7 +278,7 @@ function drawMainColumn(document: PDFKit.PDFDocument, data: CVData): void {
 
   document.font('Helvetica-Bold').fontSize(9.5).fillColor(COLORS.accent)
     .text(data.identity.title, MAIN_X, y, { width: MAIN_WIDTH, lineGap: 2 });
-  y = document.y + 9;
+  y = document.y + 6;
 
   y = drawProfileSummary(document, data.summary, y, data);
   y += 9;
