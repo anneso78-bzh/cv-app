@@ -37,6 +37,7 @@
 .skill-tags span, .experience-tags span { border: 1px solid #263346; border-radius: 4px; padding: 4px 6px; background: #101a28; color: #94a3b8; font-size: 8px; line-height: 1.2; }
 .skill-tags span.highlight-ccm { border-color: #155e75; background: #082c3a; color: #67e8f9; }
 .skill-tags span.highlight-dpo { border-color: #166534; background: #0c2b21; color: #86efac; }
+.skill-tags span:not(.highlight-ccm):not(.highlight-dpo) { border-color: #7c3aed; background: #241744; color: #ddd6fe; }
 .target-skills { margin-top: 14px; border: 1px solid #164e63; border-radius: 7px; padding: 10px; background: linear-gradient(120deg, #08283a, #0b1825); }
 .target-skills + .skill-group { margin-top: 13px; border-top: 1px solid #1c2837; padding-top: 11px; }
 .target-skills h3 { margin: 0 0 8px; color: #a5f3fc; font-size: 9px; font-weight: 800; }
