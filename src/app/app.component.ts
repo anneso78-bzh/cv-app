@@ -14,7 +14,14 @@ type AppTab = 'resume' | 'source';
     <div class="app-shell">
       <header class="app-header">
         <a class="brand" href="#" (click)="selectTab('resume'); $event.preventDefault()">
-          <span class="brand-mark" aria-hidden="true">AS</span>
+          <span class="brand-mark" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M6 3.75h8l4 4V20a.75.75 0 0 1-.75.75h-11.5A.75.75 0 0 1 5 20V4.5a.75.75 0 0 1 .75-.75Z"/>
+              <path d="M14 4v4h4"/>
+              <circle cx="9" cy="12" r="1.5"/>
+              <path d="M7 17c.3-1.3 1-2 2-2s1.7.7 2 2m2-4h3m-3 3h3"/>
+            </svg>
+          </span>
           <span class="brand-copy">
             <strong>Anne-Sophie HAMON</strong>
             <small>CCM · DÉVELOPPEMENT · DPO</small>

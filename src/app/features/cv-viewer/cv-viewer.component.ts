@@ -55,17 +55,21 @@ type ResumeView = 'ccm' | 'dpo' | 'full';
                   }
                 </div>
               </div>
-            }
-            @if (view !== 'dpo') {
-              <section class="target-skills" aria-label="Environnements CCM visés">
-                <h3>{{ data.targetEnvironments.title }}</h3>
-                <div class="target-tags">
-                  @for (item of data.targetEnvironments.items; track item) {
-                    <span>{{ item }}</span>
-                  }
-                </div>
-                <p>{{ data.targetEnvironments.note }}</p>
-              </section>
+              @if (category.category === 'Éditique & composition documentaire' && view !== 'dpo') {
+                <section class="target-skills" aria-label="Environnements CCM visés">
+                  <h3>{{ data.targetEnvironments.title }}</h3>
+                  <div class="target-tags">
+                    @for (item of data.targetEnvironments.items; track item) {
+                      <span>{{ item }}</span>
+                    }
+                  </div>
+                  <p>{{ data.targetEnvironments.note }}</p>
+                  <div class="target-transition">
+                    <h4>XSL-FO → CCM</h4>
+                    <p>Logique de composition, données et règles métier transférables aux studios CCM modernes.</p>
+                  </div>
+                </section>
+              }
             }
           </section>
 
@@ -79,18 +83,6 @@ type ResumeView = 'ccm' | 'dpo' | 'full';
             }
           </section>
 
-          <section class="resume-card transition-card">
-            <svg class="transition-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-              <ellipse cx="12" cy="5" rx="8" ry="3"/>
-              <path d="M4 5v7c0 1.7 3.6 3 8 3s8-1.3 8-3V5"/>
-              <path d="M4 12v7c0 1.7 3.6 3 8 3"/>
-              <path d="M20 12v4M9 19h8m-4-4 4 4-4 4"/>
-            </svg>
-            <div>
-              <h2>XSL-FO → CCM</h2>
-              <p>Logique de composition, données et règles métier transférables aux studios CCM modernes.</p>
-            </div>
-          </section>
         </aside>
 
         <section class="resume-card experience-card">

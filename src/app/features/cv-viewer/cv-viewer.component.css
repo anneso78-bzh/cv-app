@@ -37,20 +37,19 @@
 .skill-tags span.highlight-ccm { border-color: #155e75; background: #082c3a; color: #67e8f9; }
 .skill-tags span.highlight-dpo { border-color: #166534; background: #0c2b21; color: #86efac; }
 .target-skills { margin-top: 14px; border: 1px solid #164e63; border-radius: 7px; padding: 10px; background: linear-gradient(120deg, #08283a, #0b1825); }
+.target-skills + .skill-group { margin-top: 13px; border-top: 1px solid #1c2837; padding-top: 11px; }
 .target-skills h3 { margin: 0 0 8px; color: #a5f3fc; font-size: 9px; font-weight: 800; }
 .target-tags { display: flex; flex-wrap: wrap; gap: 5px; }
 .target-tags span { border: 1px dashed #0e7490; border-radius: 4px; padding: 4px 6px; color: #67e8f9; font-size: 8px; }
 .target-skills p { margin: 8px 0 0; color: #a7b5c5; font-size: 8px; line-height: 1.5; }
+.target-transition { margin-top: 10px; border-top: 1px solid #164e63; padding-top: 9px; }
+.target-transition h4 { margin: 0; color: #a5f3fc; font-size: 8px; font-weight: 800; }
+.target-transition p { margin-top: 5px; }
 .education-card { display: grid; gap: 12px; }
 .education-item { border-left: 2px solid #475569; padding-left: 9px; }
 .education-item strong { display: block; color: #d3deeb; font-size: 9px; line-height: 1.4; }
 .education-item span { display: flex; justify-content: space-between; gap: 8px; margin-top: 4px; color: #8290a3; font-size: 8px; line-height: 1.4; }
 .education-item i { color: #a5b4fc; font-style: normal; white-space: nowrap; }
-.transition-card { display: flex; gap: 11px; border-color: #155e75; background: linear-gradient(120deg, #08283a, #0b1825); }
-.transition-icon { width: 20px; height: 20px; flex: 0 0 20px; color: #fbbf24; }
-.transition-card h2 { color: #a5f3fc; font-size: 9px; }
-.transition-card p { margin: 7px 0 0; color: #a7b5c5; font-size: 9px; line-height: 1.55; }
-
 .experience-card { min-width: 0; padding: 17px 19px; }
 .experience-heading { display: flex; align-items: center; justify-content: space-between; gap: 10px; padding-bottom: 13px; border-bottom: 1px solid var(--border); }
 .years-label { color: #64748b; font-size: 8px; font-weight: 700; letter-spacing: .08em; white-space: nowrap; }
