@@ -6,7 +6,7 @@
     "location": "Rieux (56) · Gare de Redon",
     "mobility": "Rennes · Nantes · Vannes (proximité gares)"
   },
-  "summary": "Développeuse back-end senior spécialisée en Java, SQL, XML et XSL-FO, avec une double expertise de Déléguée à la Protection des Données. J’allie ingénierie documentaire, conformité RGPD et Privacy by Design. Cap : transposer cette expérience aux plateformes CCM modernes.",
+  "summary": "Développeuse back-end senior spécialisée en Java, SQL, XML et XSL-FO, avec une double expertise de Déléguée à la Protection des Données. J’allie ingénierie documentaire, conformité RGPD et Privacy by Design.\nObjectif : transposer cette expérience aux plateformes CCM modernes.",
   "skills": [
     {
       "category": "Éditique & composition documentaire",
@@ -18,7 +18,7 @@
       "category": "Back-end & architecture data",
       "ccmWeight": 4,
       "dpoWeight": 2,
-      "items": ["Java", "SQL", "PostgreSQL", "Git", "Linux", "Regex & logs", "Eclipse/VS Code", "Claude code"]
+      "items": ["Java", "SQL", "PostgreSQL", "Git", "Linux", "Regex & logs", "Eclipse/VS Code", "Claude code/Copilot"]
     },
     {
       "category": "Conformité & protection des données",
@@ -136,5 +136,11 @@
       "school": "IUT de Reims",
       "year": "1998"
     }
+  ],
+  "interests": [
+    "Jeux vidéos (RPG, aventure, réflexion)",
+    "Couture et patronnage technique",
+    "Randonnée et voyages",
+    "Lecture"
   ]
 }

@@ -1,6 +1,6 @@
 # Portfolio Angular — CV, CCM et protection des données
 
-Application Angular autonome : CV synthétique sur une page, filtres CCM/DPO et source JSON.
+Application Angular autonome : CV synthétique, filtres CCM/DPO et source JSON.
 
 ## Démarrer l'application
 
@@ -20,7 +20,7 @@ npm run build
 npm run start:server
 ```
 
-Le serveur Node sert l'application et expose `GET /api/cv.pdf`, qui génère et télécharge un PDF A4 à fond blanc à partir de `src/assets/data/cv-data.json` (ou de sa copie de production).
+Le serveur Node sert l'application et expose `GET /api/cv.pdf`, qui génère et télécharge un PDF A4 à partir de `src/assets/data/cv-data.json` (ou de sa copie de production). Le PDF utilise une colonne latérale d'environ un tiers pour les contacts, soft skills, langues, formation et centres d'intérêt, répartis verticalement sur la hauteur disponible, et une colonne principale d'environ deux tiers pour l'identité, le profil, les compétences et l'expérience. Cette colonne principale est encadrée de coins arrondis, avec un fond blanc conservé.
 
 ## Compiler pour la production
 
@@ -41,12 +41,12 @@ Les fichiers publiables sont générés dans `dist/cv-ccm-portfolio/browser`.
 
 - CV compact en deux colonnes, avec filtres de présentation CCM, DPO et globale.
 - Onglet dédié à la consultation et à la copie de la source JSON du CV.
-- Téléchargement d'un CV PDF A4, généré côté serveur à partir du JSON canonique et prêt à imprimer sur fond blanc.
+- Téléchargement d'un CV PDF A4 en deux colonnes, généré côté serveur à partir du JSON canonique.
 - Mise en page responsive.
 
 ## Sécurité et limites
 
-Les données de `src/assets` sont publiques et accessibles à toute personne qui visite le site. Les coordonnées de téléphone et d'e-mail ne sont donc pas enregistrées dans le JSON du CV. Le lien e-mail est reconstruit dans le code client pour limiter la collecte automatisée ; ce procédé est de l'obfuscation, pas un contrôle d'accès. Le navigateur finit nécessairement par connaître l'adresse destinataire.
+Les données de `src/assets` sont publiques et accessibles à toute personne qui visite le site. Aucun numéro de téléphone n'est stocké dans le JSON ; le PDF affiche « Communiqué sur demande ». L'adresse e-mail affichée dans le PDF est formatée avec `[at]` pour gêner les extracteurs simples. Le lien e-mail du site est reconstruit dans le code client. Ces procédés sont de l'obfuscation, pas un contrôle d'accès ; le texte d'un PDF reste extractible et peut être reconnu par OCR.
 
 Ne placez aucun secret, mot de passe ou clé privée dans une application front-end. Un chiffrement dont la clé est fournie au même visiteur dans l'URL ne protège pas les données contre ce visiteur et l'URL peut fuiter dans l'historique ou les journaux. Pour restreindre réellement l'accès, utiliser un service côté serveur avec authentification et autorisation.
 
@@ -56,4 +56,4 @@ Le backend lit le JSON du dépôt au lieu d'accepter un document arbitraire depu
 
 ## Personnalisation
 
-Mettre à jour le contenu public dans `src/assets/data/cv-data.json`.
+Mettre à jour le contenu public, y compris les centres d'intérêt, dans `src/assets/data/cv-data.json`.

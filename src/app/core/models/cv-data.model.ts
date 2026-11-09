@@ -47,4 +47,5 @@ export interface CVData {
     school: string;
     year: string;
   }[];
+  interests: string[];
 }
