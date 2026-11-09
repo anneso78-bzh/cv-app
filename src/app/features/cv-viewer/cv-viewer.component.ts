@@ -163,7 +163,7 @@ export class CvViewerComponent {
   }
 
   isCcmSkill(skill: string): boolean {
-    return /XSL-FO|XML|XSLT|Java|JSON|PDF|Markdown|SQL|Rigueur|Esprit d’analyse/i.test(skill);
+    return /XSL-FO|XML|XSLT|Java|JSON|PDF|Markdown|SQL|Rigueur|Esprit d’analyse|synthèse|adaptabilité|chaîne/i.test(skill);
   }
 
   isDpoSkill(skill: string): boolean {

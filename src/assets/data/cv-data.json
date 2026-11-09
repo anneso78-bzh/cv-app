@@ -54,8 +54,19 @@
       "items": [
         "Coordination technique",
         "Rédaction de spécifications",
-        "Gestion de projet",
-        "Anglais bilingue (C2)"
+        "Gestion de projet"
+      ]
+    },
+    {
+      "category": "Soft skills",
+      "ccmWeight": 3,
+      "dpoWeight": 3,
+      "items": [
+        "Curiosité & apprentissage",
+        "Synthèse & vulgarisation",
+        "Rigueur & traçabilité",
+        "Adaptabilité technique",
+        "Autonomie"
       ]
     }
   ],

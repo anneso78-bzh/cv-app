@@ -29,7 +29,8 @@ const COLORS = {
   accent: '#087e9b',
   line: '#d8e0e8',
   sidebar: '#eff6f8',
-  pale: '#e3f1f4'
+  pale: '#e3f1f4',
+  profile: '#f1f3f5'
 };
 
 interface PrivateContact {
@@ -73,7 +74,7 @@ export async function createCvPdf(
       .lineWidth(0.5)
       .strokeColor(COLORS.line)
       .stroke();
-    document.font('Helvetica').fontSize(7).fillColor(COLORS.muted)
+    document.font('Helvetica').fontSize(6).fillColor(COLORS.muted)
       .text(`${data.identity.name}  |  CV  |  ${index + 1}/${pages.count}`, MAIN_X, FOOTER_Y + 4, {
         width: MAIN_WIDTH,
         align: 'right'
@@ -123,7 +124,10 @@ function drawSidebar(
     },
     {
       title: 'LANGUES',
-      items: data.languages.map((language) => ({ value: `- ${language.name} · ${language.level}` }))
+      items: data.languages.map((language) => ({
+        value: `- ${language.name} · ${language.level}`,
+        bold: language.name === 'Anglais' && language.level.includes('bilingue')
+      }))
     },
     {
       title: 'FORMATION',
@@ -152,6 +156,7 @@ function drawSidebar(
 interface SidebarItem {
   label?: string;
   icon?: 'phone' | 'email' | 'location' | 'mobility';
+  bold?: boolean;
   value: string;
 }
 
@@ -171,7 +176,14 @@ function sidebarBlockHeight(document: PDFKit.PDFDocument, block: SidebarBlock): 
         + textHeight(document, item.value, 'Helvetica', 7.1, SIDEBAR_TEXT_WIDTH, 1)
         + 6;
     } else {
-      height += textHeight(document, item.value, 'Helvetica', 7.4, SIDEBAR_TEXT_WIDTH, 1) + 3;
+      height += textHeight(
+        document,
+        item.value,
+        item.bold ? 'Helvetica-Bold' : 'Helvetica',
+        7.4,
+        SIDEBAR_TEXT_WIDTH,
+        1
+      ) + 3;
     }
   }
   return height;
@@ -217,7 +229,7 @@ function drawSidebarBlock(document: PDFKit.PDFDocument, block: SidebarBlock, sta
         .text(item.value, SIDEBAR_TEXT_X, y, { width: SIDEBAR_TEXT_WIDTH, lineGap: 1 });
       y = document.y + 6;
     } else {
-      document.font('Helvetica').fontSize(7.4).fillColor(COLORS.body)
+      document.font(item.bold ? 'Helvetica-Bold' : 'Helvetica').fontSize(7.4).fillColor(COLORS.body)
         .text(item.value, SIDEBAR_TEXT_X, y, { width: SIDEBAR_TEXT_WIDTH, lineGap: 1 });
       y = document.y + 3;
     }
@@ -268,8 +280,7 @@ function drawMainColumn(document: PDFKit.PDFDocument, data: CVData): void {
     .text(data.identity.title, MAIN_X, y, { width: MAIN_WIDTH, lineGap: 2 });
   y = document.y + 9;
 
-  y = drawMainHeading(document, 'PROFIL', y, data);
-  y = drawProfileSummary(document, data.summary, y);
+  y = drawProfileSummary(document, data.summary, y, data);
   y += 9;
 
   y = drawMainHeading(document, 'COMPÉTENCES', y, data);
@@ -283,7 +294,8 @@ function drawMainColumn(document: PDFKit.PDFDocument, data: CVData): void {
 
     if (category.category === 'Éditique & composition documentaire') {
       y = ensureMainSpace(document, y, 61, data);
-      document.roundedRect(MAIN_X, y, MAIN_WIDTH, 51, 4).fill(COLORS.pale);
+      document.roundedRect(MAIN_X, y, MAIN_WIDTH, 51, 3)
+        .fillAndStroke(COLORS.pale, COLORS.line);
       document.font('Helvetica-Bold').fontSize(8.5).fillColor(COLORS.accent)
         .text(data.targetEnvironments.title, MAIN_X + 9, y + 6, { width: MAIN_WIDTH - 18 });
       document.font('Helvetica-Bold').fontSize(7.5).fillColor(COLORS.ink)
@@ -313,25 +325,51 @@ function drawMainHeading(document: PDFKit.PDFDocument, title: string, startY: nu
   return lineY + 7;
 }
 
-function drawProfileSummary(document: PDFKit.PDFDocument, summary: string, y: number): number {
-  const [introduction, ...objectiveLines] = summary.split('\n');
+function drawProfileSummary(document: PDFKit.PDFDocument, summary: string, y: number, data: CVData): number {
+  const [introduction = '', ...objectiveLines] = summary.split('\n');
   const objectiveMatch = objectiveLines.join(' ').match(/^Objectif\s*:\s*(.*)$/);
+  const horizontalPadding = 9;
+  const topPadding = 9;
+  const bottomPadding = 4;
+  const textX = MAIN_X + horizontalPadding;
+  const textWidth = MAIN_WIDTH - horizontalPadding * 2;
+  const fontSize = 8.5;
+  const lineGap = 2;
+  let contentHeight: number;
 
   if (!objectiveMatch) {
-    document.font('Helvetica').fontSize(8.5).fillColor(COLORS.ink)
-      .text(summary, MAIN_X, y, { width: MAIN_WIDTH, lineGap: 2 });
-    return document.y;
+    contentHeight = textHeight(document, summary, 'Helvetica', fontSize, textWidth, lineGap);
+  } else {
+    const introductionHeight = textHeight(document, introduction, 'Helvetica', fontSize, textWidth, lineGap);
+    const objectiveHeight = textHeight(
+      document,
+      `Objectif: ${objectiveMatch[1]}`,
+      'Helvetica',
+      fontSize,
+      textWidth,
+      lineGap
+    );
+    contentHeight = introductionHeight + 2 + objectiveHeight + 2;
   }
 
-  document.font('Helvetica').fontSize(8.5).fillColor(COLORS.ink)
-    .text(introduction, MAIN_X, y, { width: MAIN_WIDTH, lineGap: 2 });
-  y = document.y + 2;
+  const boxHeight = contentHeight + topPadding + bottomPadding;
+  y = ensureMainSpace(document, y, boxHeight, data);
+  document.roundedRect(MAIN_X, y, MAIN_WIDTH, boxHeight, 5).fill(COLORS.profile);
+  let textY = y + topPadding;
 
-  document.font('Helvetica-Bold').fontSize(8.5).fillColor(COLORS.ink)
-    .text('Objectif', MAIN_X, y, { continued: true, lineGap: 2 });
-  document.font('Helvetica').fontSize(8.5).fillColor(COLORS.ink)
-    .text(`: ${objectiveMatch[1]}`, { width: MAIN_WIDTH, lineGap: 2 });
-  return document.y;
+  if (!objectiveMatch) {
+    document.font('Helvetica').fontSize(fontSize).fillColor(COLORS.ink)
+      .text(summary, textX, textY, { width: textWidth, lineGap });
+  } else {
+    document.font('Helvetica').fontSize(fontSize).fillColor(COLORS.ink)
+      .text(introduction, textX, textY, { width: textWidth, lineGap });
+    textY = document.y + 2;
+    document.font('Helvetica-Bold').fontSize(fontSize).fillColor(COLORS.ink)
+      .text('Objectif', textX, textY, { continued: true, width: textWidth, lineGap });
+    document.font('Helvetica').fontSize(fontSize).fillColor(COLORS.ink)
+      .text(`: ${objectiveMatch[1]}`, { width: textWidth, lineGap });
+  }
+  return y + boxHeight;
 }
 
 function drawExperience(
