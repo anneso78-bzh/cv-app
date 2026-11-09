@@ -72,13 +72,14 @@
   .profile-card { grid-template-columns: 1fr; gap: 15px; padding: 17px; }
   .contact-list { grid-template-columns: 1fr 1fr; gap: 9px; border-top: 1px solid var(--border); border-left: 0; padding: 13px 0 0; }
   .resume-grid { grid-template-columns: 1fr; }
-  .sidebar { grid-template-columns: 1fr 1fr; align-items: start; }
-  .skills-card { grid-column: 1 / -1; }
-  .transition-card { grid-column: 1 / -1; }
+  .sidebar { display: contents; }
+  .skills-card { grid-column: 1 / -1; grid-row: 1; }
+  .experience-card { grid-row: 2; }
+  .education-card { grid-row: 3; }
 }
 
 @media (max-width: 480px) {
-  .contact-list, .sidebar { grid-template-columns: 1fr; }
+  .contact-list { grid-template-columns: 1fr; }
   .experience-card { padding: 14px; }
   .experience-heading { align-items: flex-start; flex-direction: column; }
 }
