@@ -49,7 +49,7 @@
     {
       "id": "exp-lead",
       "role": "Leader technique & développeuse back-end — restitution documentaire",
-      "company": "PerformanSe",
+      "company": "PERFORMANSE",
       "period": "2021 — Aujourd’hui · Lead Tech depuis 2024",
       "location": "Nantes / hybride",
       "ccmFocus": true,
@@ -70,7 +70,7 @@
     {
       "id": "exp-dpo",
       "role": "Déléguée à la Protection des Données (DPO)",
-      "company": "PerformanSe",
+      "company": "PERFORMANSE",
       "period": "2018 — Aujourd’hui",
       "location": "Nantes / hybride",
       "ccmFocus": true,
@@ -90,11 +90,11 @@
     {
       "id": "exp-support",
       "role": "Technicienne de support informatique (N1 à N3)",
-      "company": "PerformanSe",
+      "company": "PERFORMANSE",
       "period": "2014 — 2021",
       "location": "Nantes / hybride",
       "ccmFocus": true,
-      "dpoFocus": false,
+      "dpoFocus": true,
       "ccmOrder": 3,
       "dpoOrder": 3,
       "ccmHighlights": [
@@ -102,7 +102,9 @@
         "Investigations SQL / logs en vue de la résolution de problèmes.",
         "Rédaction de documentation technique et fonctionnelle en français et en anglais."
       ],
-      "dpoHighlights": [],
+      "dpoHighlights": [
+        "Prise en charge des demandes de droit des personnes concernées et assistance aux utilisateurs sur les questions de protection des données."
+      ],
       "techStack": ["Support N1/N2/N3", "SQL", "Regex", "Documentation"]
     }
   ],

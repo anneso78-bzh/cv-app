@@ -33,7 +33,13 @@ type ResumeView = 'ccm' | 'dpo' | 'full';
           @for (language of data.languages; track language.name) {
             <span class="contact-line"><span class="contact-icon">🌐</span>{{ language.name }} · {{ language.level }}</span>
           }
-          <a class="contact-link" [href]="emailLink"><span class="contact-icon">@</span>Me contacter</a>
+          <a class="contact-link" [href]="emailLink">
+            <svg class="contact-icon email-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <rect x="3" y="5" width="18" height="14" rx="2"/>
+              <path d="m3 7 9 6 9-6"/>
+            </svg>
+            <span class="contact-link-label">Me contacter</span>
+          </a>
         </div>
       </header>
 
@@ -44,7 +50,7 @@ type ResumeView = 'ccm' | 'dpo' | 'full';
             <div class="view-switch" role="group" aria-label="Filtrer le CV par expertise">
               <button type="button" class="ccm-view" [class.active]="view === 'ccm'" [attr.aria-pressed]="view === 'ccm'" (click)="view = 'ccm'">CCM</button>
               <button type="button" class="dpo-view" [class.active]="view === 'dpo'" [attr.aria-pressed]="view === 'dpo'" (click)="view = 'dpo'">DPO</button>
-              <button type="button" [class.active]="view === 'full'" [attr.aria-pressed]="view === 'full'" (click)="view = 'full'">Globale</button>
+              <button type="button" [class.active]="view === 'full'" [attr.aria-pressed]="view === 'full'" (click)="view = 'full'">TOUTES</button>
             </div>
             @for (category of visibleSkills; track category.category) {
               <div class="skill-group">

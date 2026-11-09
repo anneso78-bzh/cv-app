@@ -38,12 +38,12 @@ type AppTab = 'resume' | 'source';
         </nav>
 
         @if (activeTab() === 'resume') {
-          <a class="print-button" href="/api/cv.pdf" download="anne-sophie-hamon-cv.pdf">
+          <a class="print-button" href="/api/cv.pdf" [attr.download]="fullCvAccess() ? 'anne-sophie-hamon-cv-complet.pdf' : 'anne-sophie-hamon-cv.pdf'">
             <svg class="download-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
               <path d="M12 3v12m0 0 4-4m-4 4-4-4"/>
               <path d="M5 16v3a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-3"/>
             </svg>
-            Télécharger le PDF
+            {{ fullCvAccess() ? 'Télécharger le CV complet' : 'Télécharger le PDF' }}
           </a>
         } @else {
           <span class="header-spacer" aria-hidden="true"></span>
@@ -68,7 +68,7 @@ type AppTab = 'resume' | 'source';
           <section class="view-panel tool-panel source-panel">
             <div class="panel-heading">
               <div>
-                <p class="eyebrow">ARCHITECTURE / 02</p>
+                <p class="eyebrow">ARCHITECTURE</p>
                 <h1>Source de données <span>CV</span></h1>
                 <p>Le CV est alimenté par un JSON typé, séparé de son affichage.</p>
               </div>
@@ -104,9 +104,16 @@ export class AppComponent implements OnInit {
   readonly loading = signal(true);
   readonly errorMessage = signal('');
   readonly copyStatus = signal('');
+  readonly fullCvAccess = signal(false);
 
   ngOnInit(): void {
     this.loadCv();
+    this.cvDataService.getFullCvAccess()
+      .pipe(takeUntilDestroyed(this.destroyRef))
+      .subscribe({
+        next: ({ fullAccess }) => this.fullCvAccess.set(fullAccess),
+        error: () => this.fullCvAccess.set(false)
+      });
   }
 
   selectTab(tab: AppTab): void {

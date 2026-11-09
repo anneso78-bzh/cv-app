@@ -13,8 +13,9 @@
 .contact-icon { width: 15px; flex: 0 0 15px; color: var(--cyan); font-size: 12px; text-align: center; }
 .location-icon { width: 16px; height: 16px; }
 .mobility-icon { width: 16px; height: 16px; }
+.email-icon { height: 16px; }
 .contact-link { width: fit-content; color: #67e8f9; text-decoration: none; }
-.contact-link:hover { text-decoration: underline; }
+.contact-link:hover .contact-link-label { text-decoration: underline; }
 
 .resume-grid { display: grid; grid-template-columns: minmax(250px, .34fr) minmax(0, .66fr); align-items: start; gap: 15px; }
 .sidebar { display: grid; gap: 12px; }
@@ -64,7 +65,7 @@
 .experience h3 { margin: 8px 0 0; color: #e6edf5; font-size: 12px; font-weight: 700; line-height: 1.4; }
 .experience ul { display: grid; gap: 6px; margin: 8px 0; padding: 0; list-style: none; }
 .experience li { position: relative; padding-left: 12px; color: #9aa8b9; font-size: 9px; line-height: 1.55; }
-.experience li::before { position: absolute; top: 0; left: 0; color: var(--cyan); content: "›"; font-size: 13px; }
+.experience li::before { position: absolute; top: .48em; left: 2px; width: 4px; height: 4px; transform: rotate(45deg); border-top: 1.5px solid var(--cyan); border-right: 1.5px solid var(--cyan); content: ""; }
 .experience-tags { margin-top: 8px; }
 .experience-tags span { border-color: #263346; padding: 3px 6px; font-size: 7px; }
 

@@ -14,4 +14,8 @@ export class CvDataService {
   getCVData(): Observable<CVData> {
     return this.http.get<CVData>(this.dataUrl);
   }
+
+  getFullCvAccess(): Observable<{ fullAccess: boolean }> {
+    return this.http.get<{ fullAccess: boolean }>('/api/cv-access/status');
+  }
 }

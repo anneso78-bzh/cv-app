@@ -16,6 +16,7 @@
     "@angular/core": "^22.2.5",
     "@angular/forms": "^22.2.5",
     "@angular/platform-browser": "^22.2.5",
+    "dotenv": "^18.0.10",
     "express": "^5.1.0",
     "pdfkit": "^0.17.2",
     "rxjs": "~7.8.2",

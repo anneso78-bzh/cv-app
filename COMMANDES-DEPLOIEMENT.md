@@ -13,6 +13,8 @@ npm run build
 
 `npm ci` installe les dépendances du projet. `npm run build` compile Angular et le serveur Node dans `dist/`. Les avertissements de dépréciation npm ne sont pas forcément des erreurs ; vérifier que la commande se termine sans code d'erreur.
 
+Le fichier `.env` local (ignoré par Git) contient les variables privées du PDF. Il est créé avec des valeurs vides ; le compléter localement sans envoyer son contenu dans Git. Générer le jeton avec `openssl rand -hex 32`. Le fichier `.env.example` indique les noms des variables sans secret. Le serveur charge `.env` au démarrage.
+
 Pour lancer l'application en développement :
 
 ```bash
@@ -58,6 +60,24 @@ node ~/cv-app/dist/server/server.js
 Le serveur utilise les variables `IP` et `PORT` fournies par Alwaysdata. Ne pas remplacer le port par une valeur codée en dur.
 
 `dist/` est généré localement et ignoré par Git : un `git pull` ne le met pas à jour. Il faut donc reconstruire et retransférer `dist/` à chaque publication qui modifie l'application.
+
+## Lien privé vers le CV PDF complet
+
+Le téléchargement public (`/api/cv.pdf`) masque le téléphone et l'adresse e-mail. Pour permettre à un recruteur d'obtenir le PDF complet, configurer les variables suivantes dans l'environnement du site Node.js Alwaysdata :
+
+- `CV_PRIVATE_PHONE` : numéro à afficher dans le PDF privé.
+- `CV_PRIVATE_EMAIL` : adresse e-mail complète à afficher dans le PDF privé.
+- `CV_FULL_CV_TOKEN` : secret aléatoire d'au moins 32 caractères, uniquement composé de lettres, chiffres, `_` ou `-`.
+
+Générer le secret avec un générateur cryptographiquement sûr (par exemple `openssl rand -hex 32`) et le conserver dans la configuration du serveur, jamais dans Git, le code Angular ou un document partagé. Redémarrer le site après avoir configuré ces variables.
+
+Partager au recruteur un lien de la forme :
+
+```text
+https://VOTRE-DOMAINE/api/cv-access?token=VOTRE_CV_FULL_CV_TOKEN
+```
+
+Le lien valide établit une session privée de 24 heures puis ouvre l'interface du CV. Le recruteur clique ensuite sur **Télécharger le CV complet** pour obtenir le PDF avec les coordonnées privées. Sans session valide, le bouton reste public et le PDF affiche les coordonnées masquées. Toute personne qui obtient le lien peut accéder au CV complet ; pour révoquer tous les liens partagés, remplacer `CV_FULL_CV_TOKEN` puis redémarrer le site. Le jeton est transmis dans l'URL initiale : ne pas le publier ni le réutiliser comme mot de passe d'un autre service.
 
 ## Mettre à jour les sources Git sur Alwaysdata (facultatif)
 
