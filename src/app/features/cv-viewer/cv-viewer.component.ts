@@ -11,7 +11,21 @@ type ResumeView = 'ccm' | 'dpo' | 'full';
       <header class="profile-card">
         <div class="profile-main">
           <p class="target-label"><span></span> CIBLE : INGÉNIEURE CCM / RESTITUTION DOCUMENTAIRE</p>
-          <h1>{{ data.identity.name }}</h1>
+          <div class="profile-name-row">
+            <h1>{{ data.identity.name }}</h1>
+            <a
+              class="contact-link linkedin-link"
+              href="https://www.linkedin.com/in/anne-sophie-hamon-33441b41/"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Voir le profil LinkedIn d’Anne-Sophie HAMON (ouvre un nouvel onglet)"
+            >
+              <svg class="linkedin-icon" viewBox="0 0 24 24" aria-hidden="true">
+                <rect x="2" y="2" width="20" height="20" rx="3" fill="currentColor"/>
+                <path d="M7 10v7m0-10v.01M11 17v-7m0 3c0-1.7 5-2 5 0v4" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </a>
+          </div>
           <p class="profile-title">{{ data.identity.title }}</p>
           <p class="summary">{{ data.summary }}</p>
         </div>
