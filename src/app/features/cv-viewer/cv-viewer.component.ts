@@ -20,9 +20,9 @@ type ResumeView = 'ccm' | 'dpo' | 'full';
               rel="noopener noreferrer"
               aria-label="Voir le profil LinkedIn d’Anne-Sophie HAMON (ouvre un nouvel onglet)"
             >
-              <svg class="linkedin-icon" viewBox="0 0 24 24" aria-hidden="true">
-                <rect x="2" y="2" width="20" height="20" rx="3" fill="currentColor"/>
-                <path d="M7 10v7m0-10v.01M11 17v-7m0 3c0-1.7 5-2 5 0v4" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+              <svg class="linkedin-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <rect x="3" y="3" width="18" height="18" rx="3"/>
+                <path d="M7.5 10.5v7m0-10v.01M11.5 17.5v-7m0 3c0-4 5-4 5 0v4"/>
               </svg>
             </a>
           </div>

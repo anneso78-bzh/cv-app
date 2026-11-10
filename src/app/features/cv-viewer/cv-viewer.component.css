@@ -7,8 +7,8 @@
 .target-label span { width: 6px; height: 6px; border-radius: 50%; background: var(--cyan); box-shadow: 0 0 10px var(--cyan); }
 .profile-name-row { display: flex; flex-wrap: wrap; align-items: center; gap: 12px; }
 .profile-card h1 { margin: 0; font-size: clamp(27px, 4vw, 37px); font-weight: 800; letter-spacing: -.045em; }
-.linkedin-link { justify-content: center; border: 1px solid #155e75; border-radius: 6px; padding: 5px; background: #0b2532; }
-.linkedin-icon { width: 16px; height: 16px; color: #0a7895; }
+.linkedin-link { justify-content: center; }
+.linkedin-icon { width: 28px; height: 28px; color: var(--cyan); }
 .profile-title { margin: 6px 0 12px; color: #aab8c9; font-size: 13px; font-weight: 600; line-height: 1.5; }
 .summary { max-width: 740px; margin: 0; color: #9aa8b9; font-size: 10px; line-height: 1.65; white-space: pre-line; }
 .contact-list { display: grid; align-content: center; gap: 8px; border-left: 1px solid var(--border); padding-left: 20px; }
