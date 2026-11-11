@@ -14,7 +14,7 @@
 .contact-list { display: grid; align-content: center; gap: 8px; border-left: 1px solid var(--border); padding-left: 20px; }
 .contact-line, .contact-link { display: flex; align-items: center; gap: 9px; color: #aab8c9; font-size: 9px; line-height: 1.4; }
 .contact-icon { width: 15px; flex: 0 0 15px; color: var(--cyan); font-size: 12px; text-align: center; }
-.location-icon { width: 16px; height: 16px; }
+.location-icon, .language-icon { width: 16px; height: 16px; }
 .mobility-icon { width: 16px; height: 16px; }
 .email-icon { height: 16px; }
 .contact-link { width: fit-content; color: #67e8f9; text-decoration: none; }

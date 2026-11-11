@@ -30,6 +30,13 @@ type ResumeView = 'ccm' | 'dpo' | 'full';
           <p class="summary">{{ data.summary }}</p>
         </div>
         <div class="contact-list">
+          <a class="contact-link" [href]="emailLink">
+            <svg class="contact-icon email-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <rect x="3" y="5" width="18" height="14" rx="2"/>
+              <path d="m3 7 9 6 9-6"/>
+            </svg>
+            <span class="contact-link-label">Me contacter</span>
+          </a>
           <span class="contact-line">
             <svg class="contact-icon location-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
               <path d="M20 10c0 5-8 12-8 12S4 15 4 10a8 8 0 1 1 16 0Z"/>
@@ -44,16 +51,18 @@ type ResumeView = 'ccm' | 'dpo' | 'full';
             </svg>
             {{ data.identity.mobility }}
           </span>
-          @for (language of data.languages; track language.name) {
-            <span class="contact-line"><span class="contact-icon">🌐</span>{{ language.name }} · {{ language.level }}</span>
-          }
-          <a class="contact-link" [href]="emailLink">
-            <svg class="contact-icon email-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-              <rect x="3" y="5" width="18" height="14" rx="2"/>
-              <path d="m3 7 9 6 9-6"/>
-            </svg>
-            <span class="contact-link-label">Me contacter</span>
-          </a>
+          <section class="contact-languages skill-group" aria-labelledby="contact-languages-title">
+            <h3 id="contact-languages-title">LANGUES</h3>
+            @for (language of data.languages; track language.name) {
+              <span class="contact-line">
+                <svg class="contact-icon language-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <circle cx="12" cy="12" r="9"/>
+                  <path d="M3 12h18M12 3a15 15 0 0 1 0 18M12 3a15 15 0 0 0 0 18"/>
+                </svg>
+                {{ language.name }} · {{ language.level }}
+              </span>
+            }
+          </section>
         </div>
       </header>
 
@@ -62,9 +71,9 @@ type ResumeView = 'ccm' | 'dpo' | 'full';
           <section class="resume-card skills-card">
             <h2><span class="section-icon">⌘</span> COMPÉTENCES</h2>
             <div class="view-switch" role="group" aria-label="Filtrer le CV par expertise">
-              <button type="button" class="ccm-view" [class.active]="view === 'ccm'" [attr.aria-pressed]="view === 'ccm'" (click)="view = 'ccm'">CCM</button>
-              <button type="button" class="dpo-view" [class.active]="view === 'dpo'" [attr.aria-pressed]="view === 'dpo'" (click)="view = 'dpo'">DPO</button>
               <button type="button" [class.active]="view === 'full'" [attr.aria-pressed]="view === 'full'" (click)="view = 'full'">TOUTES</button>
+              <button type="button" class="ccm-view" [class.active]="view === 'ccm'" [attr.aria-pressed]="view === 'ccm'" (click)="view = 'ccm'">ÉDITIQUE</button>
+              <button type="button" class="dpo-view" [class.active]="view === 'dpo'" [attr.aria-pressed]="view === 'dpo'" (click)="view = 'dpo'">DPO</button>
             </div>
             @for (category of visibleSkills; track category.category) {
               <div class="skill-group">
@@ -140,7 +149,7 @@ type ResumeView = 'ccm' | 'dpo' | 'full';
 export class CvViewerComponent {
   @Input({ required: true }) data!: CVData;
 
-  view: ResumeView = 'ccm';
+  view: ResumeView = 'full';
   readonly emailLink = `mailto:${['as.hamon', 'outlook.com'].join('@')}`;
 
   get visibleSkills(): SkillCategory[] {
